@@ -12,7 +12,7 @@ func main() {
 	if err := config.LoadConfig(); err != nil {
 		log.Fatal(err)
 	}
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial(config.RabbitmqURL)
 	if err != nil {
 		log.Fatal(err)
 	}
