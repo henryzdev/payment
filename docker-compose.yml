@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:latest
+    ports:
+      - "5672:5672"
+      
+  payment-service:
+    image: payment-service:latest
+    environment:
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
